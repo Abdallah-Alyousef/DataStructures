@@ -4,6 +4,9 @@ public class ArrayList<T> implements List<T>{
   private int current;
   private T[] nodes;
 
+  //PRIMARY METHODS
+
+
   public ArrayList(int n) {
     maxsize = 0;
     size = 0;
@@ -79,6 +82,27 @@ public class ArrayList<T> implements List<T>{
       count++;
     }
     return count++;
+  }
+
+
+  //SECONDRY METHODS
+
+
+
+  public static <T> boolean search(List<T> l,T key) {
+    if(l.empty() == false) {
+      l.findFirst();
+      while(!l.last()) {
+        if(l.retrieve().equals(key)) {
+          return true;
+        }
+        l.findNext();
+      }
+      if(l.retrieve().equals(key)) {
+        return true;
+      }
+    }
+    return false;
   }
   
   

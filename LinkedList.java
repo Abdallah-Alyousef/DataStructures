@@ -2,6 +2,9 @@ public class LinkedList<T> implements List<T>{
   private Node<T> head;
   private Node<T> current;
 
+
+  //PRIMARY METHODS --------------------------------------------------------------------
+
   public LinkedList() {
     head = current = null;
   }
@@ -73,9 +76,26 @@ public class LinkedList<T> implements List<T>{
     }
     return count;
   }
-  public static <T> boolean search(LinkedList<T> l) {
-    
+
+  //SECONDRY METHODS --------------------------------------------------------------------
+
+  public static <T> boolean search(List<T> l,T key) {
+    if(l.empty() == false) {
+      l.findFirst();
+      while(!l.last()) {
+        if(l.retrieve().equals(key)) {
+          return true;
+        }
+        l.findNext();
+      }
+      if(l.retrieve().equals(key)) {
+        return true;
+      }
+    }
+    return false;
   }
+
+  
 
 
 
